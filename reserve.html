@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Make a Reservation</h1>
+            <hr>
+            <a href="/home.html">
+                <button class="btn btn-danger btn-lg">
+                    <span class="fa fa-plus"></span> Home
+                </button>
+            </a>
+            <a href="/tables.html">
+                <button class="btn btn-danger btn-lg">
+                    <span class="fa fa-eye"></span> View Tables
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Make Your Reservation</div>
+            <div>
+                <form>
+                    <div class="mb-3">
+                        <label for="reservation-name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="reservation-name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="reservation-email" class="form-label">Email address</label>
+                      <input type="text" class="form-control" id="reservation-email">
+                    </div>
+                    <div class="mb-3">
+                      <label for="reservation-phone" class="form-label">Phone Number</label>
+                      <input type="password" class="form-control" id="reservation-phone">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+    </div>
+</body>
+</html>
