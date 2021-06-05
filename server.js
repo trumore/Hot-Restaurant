@@ -10,7 +10,7 @@ const tables = [{}];
 const waitingList = [{}];
 
 // serve static files
-app.use(express.static('public'));
+// app.use(express.static(''));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +18,19 @@ app.use(express.json());
 
 // API routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, 'home.html'));
+});
+
+app.get('/home.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'home.html'));
+});
+
+app.get('/tables.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'tables.html'));
+});
+
+app.get('/reserve.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'reserve.html'));
 });
 
 // GET /api/tables
@@ -44,7 +56,7 @@ app.post('/api/reserve', (req, res) => {
     if (found) {
         return res.json({'status': 'exists'})
     }
-    else if (tables.length() > MAX_RESERVE {
+    else if (tables.length() > MAX_RESERVE) {
         waitingList.push(newReserve);
         return res.json({'status': 'wait'});
     }
@@ -55,7 +67,7 @@ app.post('/api/reserve', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/404.html'));
+    res.sendFile(path.join(__dirname, '404.html'));
 })
 
 // Listener
