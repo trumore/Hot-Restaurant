@@ -44,6 +44,7 @@ app.get('/api/tables', (req, res) => {
 // POST /api/tables
 app.post('/api/reserve', (req, res) => {
     // req.body hosts is equal to the JSON post sent from the user
+    console.log(req);
     const newReserve = req.body;
   
     const found = false;
@@ -56,12 +57,13 @@ app.post('/api/reserve', (req, res) => {
     if (found) {
         return res.json({'status': 'exists'})
     }
-    else if (tables.length() > MAX_RESERVE) {
+    else if (tables.length > MAX_RESERVE) {
         waitingList.push(newReserve);
         return res.json({'status': 'wait'});
     }
     else {
         tables.push(newReserve);
+        console.log(tables);
         return res.json({'status': 'reserved'});
     }
 });
